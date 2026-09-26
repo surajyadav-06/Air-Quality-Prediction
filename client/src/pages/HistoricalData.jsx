@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 
 export default function HistoricalData() {
   const [cities, setCities] = useState([]);
@@ -10,7 +11,7 @@ export default function HistoricalData() {
 
   // Load cities on mount
   useEffect(() => {
-    fetch('/api/cities')
+    fetch(`${API_BASE_URL}/api/cities`)
       .then(res => res.json())
       .then(data => {
         if (data.cities && data.cities.length > 0) {
@@ -31,7 +32,7 @@ export default function HistoricalData() {
     setError(null);
     setResult(null);
 
-    let url = `/api/air-quality/check?city=${encodeURIComponent(selectedCity)}`;
+    let url = `${API_BASE_URL}/api/air-quality/check?city=${encodeURIComponent(selectedCity)}`;
     if (selectedDate) {
       url += `&date=${encodeURIComponent(selectedDate)}`;
     }

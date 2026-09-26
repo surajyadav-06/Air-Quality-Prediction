@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 
 export default function MLResults() {
   const [report, setReport] = useState(null);
@@ -7,7 +8,7 @@ export default function MLResults() {
   const [selectedModelForCm, setSelectedModelForCm] = useState('Random Forest Classifier');
 
   useEffect(() => {
-    fetch('/api/models/performance')
+    fetch(`${API_BASE_URL}/api/models/performance`)
       .then(res => {
         if (!res.ok) throw new Error('Could not load ML results.');
         return res.json();

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../config';
 
 export default function PredictAQI({ setActiveTab }) {
   const [inputs, setInputs] = useState({
@@ -28,7 +29,7 @@ export default function PredictAQI({ setActiveTab }) {
     setError(null);
     setResult(null);
 
-    fetch('/api/predict', {
+    fetch(`${API_BASE_URL}/api/predict`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(inputs)
