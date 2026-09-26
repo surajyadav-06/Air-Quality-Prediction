@@ -1,0 +1,1304 @@
+{
+  "project_title": "Air Quality Prediction and Monitoring System Using Machine Learning",
+  "experiment_no": "ML Experiment 10",
+  "dataset_info": {
+    "source": "city_day.csv (Indian Central Pollution Control Board - CPCB)",
+    "total_raw_rows": 29531,
+    "total_cleaned_rows": 24850,
+    "train_rows": 19880,
+    "test_rows": 4970,
+    "train_split_pct": 80,
+    "test_split_pct": 20,
+    "features": [
+      "PM2.5",
+      "PM10",
+      "NO2",
+      "SO2",
+      "CO",
+      "O3"
+    ],
+    "regression_target": "AQI (Numerical Air Quality Index)",
+    "classification_target": "AQI_Bucket (Good, Satisfactory, Moderate, Poor, Very Poor, Severe)",
+    "unique_cities_count": 26,
+    "cities_list": [
+      "Ahmedabad",
+      "Aizawl",
+      "Amaravati",
+      "Amritsar",
+      "Bengaluru",
+      "Bhopal",
+      "Brajrajnagar",
+      "Chandigarh",
+      "Chennai",
+      "Coimbatore",
+      "Delhi",
+      "Ernakulam",
+      "Gurugram",
+      "Guwahati",
+      "Hyderabad",
+      "Jaipur",
+      "Jorapokhar",
+      "Kochi",
+      "Kolkata",
+      "Lucknow",
+      "Mumbai",
+      "Patna",
+      "Shillong",
+      "Talcher",
+      "Thiruvananthapuram",
+      "Visakhapatnam"
+    ],
+    "date_range": {
+      "min": "2015-01-01",
+      "max": "2020-07-01"
+    }
+  },
+  "regression_comparison": [
+    {
+      "model_name": "Linear Regression",
+      "mae": 31.02,
+      "mse": 3532.84,
+      "rmse": 59.44,
+      "r2_score": 0.8071,
+      "is_scaled": true
+    },
+    {
+      "model_name": "Ridge Regression",
+      "mae": 31.02,
+      "mse": 3532.66,
+      "rmse": 59.44,
+      "r2_score": 0.8071,
+      "is_scaled": true
+    },
+    {
+      "model_name": "Decision Tree Regressor",
+      "mae": 26.16,
+      "mse": 3236.61,
+      "rmse": 56.89,
+      "r2_score": 0.8232,
+      "is_scaled": false
+    },
+    {
+      "model_name": "Random Forest Regressor",
+      "mae": 21.99,
+      "mse": 1756.53,
+      "rmse": 41.91,
+      "r2_score": 0.9041,
+      "is_scaled": false
+    },
+    {
+      "model_name": "Gradient Boosting Regressor",
+      "mae": 22.32,
+      "mse": 1778.86,
+      "rmse": 42.18,
+      "r2_score": 0.9029,
+      "is_scaled": false
+    }
+  ],
+  "best_regression_model": {
+    "model_name": "Random Forest Regressor",
+    "mae": 21.99,
+    "mse": 1756.53,
+    "rmse": 41.91,
+    "r2_score": 0.9041,
+    "is_scaled": false
+  },
+  "classification_comparison": [
+    {
+      "model_name": "Logistic Regression",
+      "accuracy": 0.7308,
+      "precision": 0.7336,
+      "recall": 0.7308,
+      "f1_score": 0.7197,
+      "is_scaled": true
+    },
+    {
+      "model_name": "Decision Tree Classifier",
+      "accuracy": 0.768,
+      "precision": 0.7666,
+      "recall": 0.768,
+      "f1_score": 0.7666,
+      "is_scaled": false
+    },
+    {
+      "model_name": "Random Forest Classifier",
+      "accuracy": 0.7988,
+      "precision": 0.7979,
+      "recall": 0.7988,
+      "f1_score": 0.7973,
+      "is_scaled": false
+    },
+    {
+      "model_name": "Gradient Boosting Classifier",
+      "accuracy": 0.7887,
+      "precision": 0.7875,
+      "recall": 0.7887,
+      "f1_score": 0.7878,
+      "is_scaled": false
+    }
+  ],
+  "best_classification_model": {
+    "model_name": "Random Forest Classifier",
+    "accuracy": 0.7988,
+    "precision": 0.7979,
+    "recall": 0.7988,
+    "f1_score": 0.7973,
+    "is_scaled": false
+  },
+  "confusion_matrices": {
+    "Logistic Regression": {
+      "matrix": [
+        [
+          61,
+          213,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          13,
+          1379,
+          259,
+          2,
+          2,
+          0
+        ],
+        [
+          0,
+          286,
+          1378,
+          75,
+          5,
+          1
+        ],
+        [
+          0,
+          4,
+          216,
+          284,
+          50,
+          1
+        ],
+        [
+          0,
+          0,
+          13,
+          83,
+          336,
+          30
+        ],
+        [
+          0,
+          0,
+          6,
+          13,
+          58,
+          194
+        ]
+      ],
+      "labels": [
+        "Good",
+        "Satisfactory",
+        "Moderate",
+        "Poor",
+        "Very Poor",
+        "Severe"
+      ]
+    },
+    "Decision Tree Classifier": {
+      "matrix": [
+        [
+          166,
+          110,
+          4,
+          2,
+          0,
+          0
+        ],
+        [
+          66,
+          1330,
+          250,
+          6,
+          3,
+          0
+        ],
+        [
+          4,
+          181,
+          1444,
+          107,
+          7,
+          2
+        ],
+        [
+          1,
+          4,
+          150,
+          332,
+          63,
+          5
+        ],
+        [
+          0,
+          1,
+          8,
+          67,
+          337,
+          49
+        ],
+        [
+          0,
+          1,
+          4,
+          6,
+          52,
+          208
+        ]
+      ],
+      "labels": [
+        "Good",
+        "Satisfactory",
+        "Moderate",
+        "Poor",
+        "Very Poor",
+        "Severe"
+      ]
+    },
+    "Random Forest Classifier": {
+      "matrix": [
+        [
+          179,
+          98,
+          4,
+          1,
+          0,
+          0
+        ],
+        [
+          39,
+          1397,
+          215,
+          3,
+          1,
+          0
+        ],
+        [
+          1,
+          172,
+          1480,
+          83,
+          8,
+          1
+        ],
+        [
+          0,
+          5,
+          141,
+          350,
+          56,
+          3
+        ],
+        [
+          0,
+          0,
+          9,
+          70,
+          346,
+          37
+        ],
+        [
+          0,
+          1,
+          3,
+          5,
+          44,
+          218
+        ]
+      ],
+      "labels": [
+        "Good",
+        "Satisfactory",
+        "Moderate",
+        "Poor",
+        "Very Poor",
+        "Severe"
+      ]
+    },
+    "Gradient Boosting Classifier": {
+      "matrix": [
+        [
+          189,
+          88,
+          4,
+          1,
+          0,
+          0
+        ],
+        [
+          58,
+          1386,
+          206,
+          3,
+          2,
+          0
+        ],
+        [
+          5,
+          189,
+          1444,
+          98,
+          7,
+          2
+        ],
+        [
+          2,
+          5,
+          148,
+          343,
+          50,
+          7
+        ],
+        [
+          1,
+          0,
+          10,
+          78,
+          336,
+          37
+        ],
+        [
+          0,
+          0,
+          2,
+          6,
+          41,
+          222
+        ]
+      ],
+      "labels": [
+        "Good",
+        "Satisfactory",
+        "Moderate",
+        "Poor",
+        "Very Poor",
+        "Severe"
+      ]
+    }
+  },
+  "feature_importances": {
+    "regression": [
+      {
+        "feature": "PM2.5",
+        "importance": 0.5055
+      },
+      {
+        "feature": "CO",
+        "importance": 0.4059
+      },
+      {
+        "feature": "PM10",
+        "importance": 0.0367
+      },
+      {
+        "feature": "NO2",
+        "importance": 0.018
+      },
+      {
+        "feature": "O3",
+        "importance": 0.0174
+      },
+      {
+        "feature": "SO2",
+        "importance": 0.0165
+      }
+    ],
+    "classification": [
+      {
+        "feature": "PM2.5",
+        "importance": 0.3648
+      },
+      {
+        "feature": "PM10",
+        "importance": 0.2169
+      },
+      {
+        "feature": "CO",
+        "importance": 0.1736
+      },
+      {
+        "feature": "O3",
+        "importance": 0.0846
+      },
+      {
+        "feature": "NO2",
+        "importance": 0.0844
+      },
+      {
+        "feature": "SO2",
+        "importance": 0.0757
+      }
+    ]
+  },
+  "actual_vs_predicted_sample": [
+    {
+      "sample_id": 1,
+      "actual_aqi": 466.0,
+      "predicted_aqi": 498.2,
+      "actual_bucket": "Severe",
+      "predicted_bucket": "Severe"
+    },
+    {
+      "sample_id": 2,
+      "actual_aqi": 81.0,
+      "predicted_aqi": 87.1,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 3,
+      "actual_aqi": 160.0,
+      "predicted_aqi": 155.9,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 4,
+      "actual_aqi": 63.0,
+      "predicted_aqi": 50.5,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 5,
+      "actual_aqi": 68.0,
+      "predicted_aqi": 61.8,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 6,
+      "actual_aqi": 80.0,
+      "predicted_aqi": 76.4,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 7,
+      "actual_aqi": 272.0,
+      "predicted_aqi": 213.6,
+      "actual_bucket": "Poor",
+      "predicted_bucket": "Poor"
+    },
+    {
+      "sample_id": 8,
+      "actual_aqi": 175.0,
+      "predicted_aqi": 111.8,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 9,
+      "actual_aqi": 270.0,
+      "predicted_aqi": 234.2,
+      "actual_bucket": "Poor",
+      "predicted_bucket": "Poor"
+    },
+    {
+      "sample_id": 10,
+      "actual_aqi": 75.0,
+      "predicted_aqi": 70.1,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 11,
+      "actual_aqi": 289.0,
+      "predicted_aqi": 289.5,
+      "actual_bucket": "Poor",
+      "predicted_bucket": "Poor"
+    },
+    {
+      "sample_id": 12,
+      "actual_aqi": 105.0,
+      "predicted_aqi": 108.5,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 13,
+      "actual_aqi": 125.0,
+      "predicted_aqi": 138.3,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 14,
+      "actual_aqi": 135.0,
+      "predicted_aqi": 148.1,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 15,
+      "actual_aqi": 196.0,
+      "predicted_aqi": 217.7,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Poor"
+    },
+    {
+      "sample_id": 16,
+      "actual_aqi": 174.0,
+      "predicted_aqi": 179.0,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 17,
+      "actual_aqi": 186.0,
+      "predicted_aqi": 178.1,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 18,
+      "actual_aqi": 95.0,
+      "predicted_aqi": 183.4,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 19,
+      "actual_aqi": 47.0,
+      "predicted_aqi": 54.9,
+      "actual_bucket": "Good",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 20,
+      "actual_aqi": 85.0,
+      "predicted_aqi": 85.5,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 21,
+      "actual_aqi": 128.0,
+      "predicted_aqi": 143.2,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 22,
+      "actual_aqi": 75.0,
+      "predicted_aqi": 90.7,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 23,
+      "actual_aqi": 94.0,
+      "predicted_aqi": 136.4,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 24,
+      "actual_aqi": 298.0,
+      "predicted_aqi": 332.9,
+      "actual_bucket": "Poor",
+      "predicted_bucket": "Very Poor"
+    },
+    {
+      "sample_id": 25,
+      "actual_aqi": 101.0,
+      "predicted_aqi": 104.3,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 26,
+      "actual_aqi": 108.0,
+      "predicted_aqi": 115.1,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 27,
+      "actual_aqi": 103.0,
+      "predicted_aqi": 118.2,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 28,
+      "actual_aqi": 151.0,
+      "predicted_aqi": 157.6,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 29,
+      "actual_aqi": 824.0,
+      "predicted_aqi": 1208.9,
+      "actual_bucket": "Severe",
+      "predicted_bucket": "Severe"
+    },
+    {
+      "sample_id": 30,
+      "actual_aqi": 60.0,
+      "predicted_aqi": 105.0,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 31,
+      "actual_aqi": 217.0,
+      "predicted_aqi": 155.3,
+      "actual_bucket": "Poor",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 32,
+      "actual_aqi": 106.0,
+      "predicted_aqi": 97.9,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 33,
+      "actual_aqi": 379.0,
+      "predicted_aqi": 368.8,
+      "actual_bucket": "Very Poor",
+      "predicted_bucket": "Severe"
+    },
+    {
+      "sample_id": 34,
+      "actual_aqi": 58.0,
+      "predicted_aqi": 76.5,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 35,
+      "actual_aqi": 92.0,
+      "predicted_aqi": 84.4,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 36,
+      "actual_aqi": 172.0,
+      "predicted_aqi": 183.0,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 37,
+      "actual_aqi": 55.0,
+      "predicted_aqi": 63.0,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 38,
+      "actual_aqi": 75.0,
+      "predicted_aqi": 71.2,
+      "actual_bucket": "Satisfactory",
+      "predicted_bucket": "Satisfactory"
+    },
+    {
+      "sample_id": 39,
+      "actual_aqi": 133.0,
+      "predicted_aqi": 124.6,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    },
+    {
+      "sample_id": 40,
+      "actual_aqi": 186.0,
+      "predicted_aqi": 163.4,
+      "actual_bucket": "Moderate",
+      "predicted_bucket": "Moderate"
+    }
+  ],
+  "city_stats": {
+    "Ahmedabad": {
+      "record_count": 1334,
+      "min_date": "2015-01-29",
+      "max_date": "2020-07-01",
+      "avg_aqi": 452.1,
+      "min_aqi": 48.0,
+      "max_aqi": 2049.0,
+      "avg_pm25": 67.9,
+      "avg_pm10": 109.2,
+      "avg_no2": 60.3,
+      "avg_so2": 55.7,
+      "avg_co": 22.2,
+      "avg_o3": 39.3,
+      "dominant_bucket": "Severe"
+    },
+    "Aizawl": {
+      "record_count": 111,
+      "min_date": "2020-03-12",
+      "max_date": "2020-07-01",
+      "avg_aqi": 34.8,
+      "min_aqi": 18.0,
+      "max_aqi": 92.0,
+      "avg_pm25": 16.9,
+      "avg_pm10": 23.2,
+      "avg_no2": 0.4,
+      "avg_so2": 7.3,
+      "avg_co": 0.3,
+      "avg_o3": 3.6,
+      "dominant_bucket": "Good"
+    },
+    "Amaravati": {
+      "record_count": 841,
+      "min_date": "2017-11-25",
+      "max_date": "2020-07-01",
+      "avg_aqi": 95.3,
+      "min_aqi": 24.0,
+      "max_aqi": 312.0,
+      "avg_pm25": 38.0,
+      "avg_pm10": 76.1,
+      "avg_no2": 21.7,
+      "avg_so2": 14.1,
+      "avg_co": 0.6,
+      "avg_o3": 38.0,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Amritsar": {
+      "record_count": 1126,
+      "min_date": "2017-02-28",
+      "max_date": "2020-07-01",
+      "avg_aqi": 119.9,
+      "min_aqi": 20.0,
+      "max_aqi": 869.0,
+      "avg_pm25": 54.3,
+      "avg_pm10": 114.6,
+      "avg_no2": 18.5,
+      "avg_so2": 8.1,
+      "avg_co": 0.6,
+      "avg_o3": 22.1,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Bengaluru": {
+      "record_count": 1910,
+      "min_date": "2015-03-21",
+      "max_date": "2020-07-01",
+      "avg_aqi": 94.3,
+      "min_aqi": 20.0,
+      "max_aqi": 352.0,
+      "avg_pm25": 35.7,
+      "avg_pm10": 82.6,
+      "avg_no2": 28.3,
+      "avg_so2": 5.3,
+      "avg_co": 1.7,
+      "avg_o3": 32.7,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Bhopal": {
+      "record_count": 278,
+      "min_date": "2019-09-18",
+      "max_date": "2020-07-01",
+      "avg_aqi": 132.8,
+      "min_aqi": 37.0,
+      "max_aqi": 312.0,
+      "avg_pm25": 50.2,
+      "avg_pm10": 119.7,
+      "avg_no2": 31.4,
+      "avg_so2": 13.1,
+      "avg_co": 0.9,
+      "avg_o3": 59.8,
+      "dominant_bucket": "Moderate"
+    },
+    "Brajrajnagar": {
+      "record_count": 713,
+      "min_date": "2017-12-08",
+      "max_date": "2020-06-12",
+      "avg_aqi": 150.3,
+      "min_aqi": 22.0,
+      "max_aqi": 355.0,
+      "avg_pm25": 63.8,
+      "avg_pm10": 123.5,
+      "avg_no2": 17.0,
+      "avg_so2": 10.2,
+      "avg_co": 1.8,
+      "avg_o3": 15.6,
+      "dominant_bucket": "Moderate"
+    },
+    "Chandigarh": {
+      "record_count": 299,
+      "min_date": "2019-09-03",
+      "max_date": "2020-07-01",
+      "avg_aqi": 96.5,
+      "min_aqi": 26.0,
+      "max_aqi": 335.0,
+      "avg_pm25": 41.0,
+      "avg_pm10": 85.8,
+      "avg_no2": 11.7,
+      "avg_so2": 10.1,
+      "avg_co": 0.6,
+      "avg_o3": 19.9,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Chennai": {
+      "record_count": 1884,
+      "min_date": "2015-03-24",
+      "max_date": "2020-07-01",
+      "avg_aqi": 114.5,
+      "min_aqi": 30.0,
+      "max_aqi": 449.0,
+      "avg_pm25": 50.1,
+      "avg_pm10": 52.3,
+      "avg_no2": 16.5,
+      "avg_so2": 7.8,
+      "avg_co": 1.0,
+      "avg_o3": 32.3,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Coimbatore": {
+      "record_count": 344,
+      "min_date": "2019-06-13",
+      "max_date": "2020-06-30",
+      "avg_aqi": 73.0,
+      "min_aqi": 26.0,
+      "max_aqi": 120.0,
+      "avg_pm25": 29.4,
+      "avg_pm10": 38.9,
+      "avg_no2": 27.5,
+      "avg_so2": 8.6,
+      "avg_co": 0.9,
+      "avg_o3": 28.7,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Delhi": {
+      "record_count": 1999,
+      "min_date": "2015-01-01",
+      "max_date": "2020-07-01",
+      "avg_aqi": 259.5,
+      "min_aqi": 29.0,
+      "max_aqi": 716.0,
+      "avg_pm25": 117.5,
+      "avg_pm10": 232.4,
+      "avg_no2": 50.8,
+      "avg_so2": 15.8,
+      "avg_co": 2.0,
+      "avg_o3": 51.1,
+      "dominant_bucket": "Poor"
+    },
+    "Ernakulam": {
+      "record_count": 153,
+      "min_date": "2020-01-25",
+      "max_date": "2020-07-01",
+      "avg_aqi": 92.4,
+      "min_aqi": 55.0,
+      "max_aqi": 180.0,
+      "avg_pm25": 24.8,
+      "avg_pm10": 47.9,
+      "avg_no2": 3.2,
+      "avg_so2": 3.2,
+      "avg_co": 1.6,
+      "avg_o3": 31.2,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Gurugram": {
+      "record_count": 1453,
+      "min_date": "2016-01-23",
+      "max_date": "2020-07-01",
+      "avg_aqi": 225.1,
+      "min_aqi": 38.0,
+      "max_aqi": 891.0,
+      "avg_pm25": 115.5,
+      "avg_pm10": 183.6,
+      "avg_no2": 23.7,
+      "avg_so2": 9.4,
+      "avg_co": 1.3,
+      "avg_o3": 35.0,
+      "dominant_bucket": "Moderate"
+    },
+    "Guwahati": {
+      "record_count": 495,
+      "min_date": "2019-02-17",
+      "max_date": "2020-07-01",
+      "avg_aqi": 140.1,
+      "min_aqi": 25.0,
+      "max_aqi": 956.0,
+      "avg_pm25": 61.5,
+      "avg_pm10": 113.8,
+      "avg_no2": 13.5,
+      "avg_so2": 14.6,
+      "avg_co": 0.7,
+      "avg_o3": 25.1,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Hyderabad": {
+      "record_count": 1880,
+      "min_date": "2015-03-31",
+      "max_date": "2020-07-01",
+      "avg_aqi": 109.2,
+      "min_aqi": 22.0,
+      "max_aqi": 737.0,
+      "avg_pm25": 47.1,
+      "avg_pm10": 92.3,
+      "avg_no2": 28.5,
+      "avg_so2": 9.3,
+      "avg_co": 0.6,
+      "avg_o3": 33.7,
+      "dominant_bucket": "Moderate"
+    },
+    "Jaipur": {
+      "record_count": 1094,
+      "min_date": "2017-06-20",
+      "max_date": "2020-07-01",
+      "avg_aqi": 133.7,
+      "min_aqi": 43.0,
+      "max_aqi": 457.0,
+      "avg_pm25": 54.7,
+      "avg_pm10": 123.8,
+      "avg_no2": 32.5,
+      "avg_so2": 11.1,
+      "avg_co": 0.8,
+      "avg_o3": 47.0,
+      "dominant_bucket": "Moderate"
+    },
+    "Jorapokhar": {
+      "record_count": 771,
+      "min_date": "2017-04-21",
+      "max_date": "2020-07-01",
+      "avg_aqi": 159.3,
+      "min_aqi": 27.0,
+      "max_aqi": 604.0,
+      "avg_pm25": 62.4,
+      "avg_pm10": 152.0,
+      "avg_no2": 9.3,
+      "avg_so2": 32.2,
+      "avg_co": 0.6,
+      "avg_o3": 32.7,
+      "dominant_bucket": "Moderate"
+    },
+    "Kochi": {
+      "record_count": 158,
+      "min_date": "2020-01-23",
+      "max_date": "2020-07-01",
+      "avg_aqi": 104.3,
+      "min_aqi": 51.0,
+      "max_aqi": 277.0,
+      "avg_pm25": 31.5,
+      "avg_pm10": 66.1,
+      "avg_no2": 14.2,
+      "avg_so2": 17.7,
+      "avg_co": 1.3,
+      "avg_o3": 3.8,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Kolkata": {
+      "record_count": 754,
+      "min_date": "2018-04-11",
+      "max_date": "2020-07-01",
+      "avg_aqi": 140.6,
+      "min_aqi": 26.0,
+      "max_aqi": 475.0,
+      "avg_pm25": 64.7,
+      "avg_pm10": 116.1,
+      "avg_no2": 40.8,
+      "avg_so2": 8.2,
+      "avg_co": 0.9,
+      "avg_o3": 30.6,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Lucknow": {
+      "record_count": 1893,
+      "min_date": "2015-03-21",
+      "max_date": "2020-07-01",
+      "avg_aqi": 218.0,
+      "min_aqi": 39.0,
+      "max_aqi": 707.0,
+      "avg_pm25": 109.8,
+      "avg_pm10": 96.2,
+      "avg_no2": 33.9,
+      "avg_so2": 8.0,
+      "avg_co": 1.7,
+      "avg_o3": 37.1,
+      "dominant_bucket": "Moderate"
+    },
+    "Mumbai": {
+      "record_count": 775,
+      "min_date": "2018-05-07",
+      "max_date": "2020-07-01",
+      "avg_aqi": 105.4,
+      "min_aqi": 40.0,
+      "max_aqi": 307.0,
+      "avg_pm25": 35.1,
+      "avg_pm10": 96.1,
+      "avg_no2": 25.3,
+      "avg_so2": 14.6,
+      "avg_co": 1.2,
+      "avg_o3": 32.6,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Patna": {
+      "record_count": 1459,
+      "min_date": "2015-10-03",
+      "max_date": "2020-07-01",
+      "avg_aqi": 240.8,
+      "min_aqi": 53.0,
+      "max_aqi": 619.0,
+      "avg_pm25": 124.7,
+      "avg_pm10": 119.2,
+      "avg_no2": 39.1,
+      "avg_so2": 23.8,
+      "avg_co": 1.6,
+      "avg_o3": 39.9,
+      "dominant_bucket": "Moderate"
+    },
+    "Shillong": {
+      "record_count": 205,
+      "min_date": "2019-08-28",
+      "max_date": "2020-07-01",
+      "avg_aqi": 53.8,
+      "min_aqi": 14.0,
+      "max_aqi": 182.0,
+      "avg_pm25": 24.6,
+      "avg_pm10": 35.8,
+      "avg_no2": 2.9,
+      "avg_so2": 7.0,
+      "avg_co": 0.3,
+      "avg_o3": 28.8,
+      "dominant_bucket": "Good"
+    },
+    "Talcher": {
+      "record_count": 698,
+      "min_date": "2018-02-08",
+      "max_date": "2020-07-01",
+      "avg_aqi": 172.9,
+      "min_aqi": 13.0,
+      "max_aqi": 570.0,
+      "avg_pm25": 61.2,
+      "avg_pm10": 165.9,
+      "avg_no2": 12.8,
+      "avg_so2": 28.9,
+      "avg_co": 1.8,
+      "avg_o3": 17.0,
+      "dominant_bucket": "Moderate"
+    },
+    "Thiruvananthapuram": {
+      "record_count": 1052,
+      "min_date": "2017-06-23",
+      "max_date": "2020-07-01",
+      "avg_aqi": 75.9,
+      "min_aqi": 32.0,
+      "max_aqi": 230.0,
+      "avg_pm25": 28.2,
+      "avg_pm10": 53.2,
+      "avg_no2": 9.5,
+      "avg_so2": 5.7,
+      "avg_co": 1.0,
+      "avg_o3": 35.2,
+      "dominant_bucket": "Satisfactory"
+    },
+    "Visakhapatnam": {
+      "record_count": 1171,
+      "min_date": "2016-07-07",
+      "max_date": "2020-07-01",
+      "avg_aqi": 117.3,
+      "min_aqi": 23.0,
+      "max_aqi": 387.0,
+      "avg_pm25": 47.6,
+      "avg_pm10": 106.8,
+      "avg_no2": 37.2,
+      "avg_so2": 12.7,
+      "avg_co": 0.9,
+      "avg_o3": 37.8,
+      "dominant_bucket": "Moderate"
+    }
+  },
+  "city_medians": {
+    "PM2.5": {
+      "Ahmedabad": 58.41,
+      "Aizawl": 10.45,
+      "Amaravati": 28.21,
+      "Amritsar": 43.96,
+      "Bengaluru": 30.97,
+      "Bhopal": 45.02,
+      "Brajrajnagar": 60.8,
+      "Chandigarh": 33.66,
+      "Chennai": 45.51,
+      "Coimbatore": 28.91,
+      "Delhi": 94.98,
+      "Ernakulam": 19.3,
+      "Gurugram": 90.82,
+      "Guwahati": 46.06,
+      "Hyderabad": 42.0,
+      "Jaipur": 49.84,
+      "Jorapokhar": 60.79,
+      "Kochi": 24.29,
+      "Kolkata": 43.65,
+      "Lucknow": 86.56,
+      "Mumbai": 23.67,
+      "Patna": 93.2,
+      "Shillong": 19.09,
+      "Talcher": 45.84,
+      "Thiruvananthapuram": 22.43,
+      "Visakhapatnam": 41.12
+    },
+    "PM10": {
+      "Ahmedabad": 107.67,
+      "Aizawl": 18.96,
+      "Amaravati": 64.09,
+      "Amritsar": 97.83,
+      "Bengaluru": 77.48,
+      "Bhopal": 120.92,
+      "Brajrajnagar": 119.58,
+      "Chandigarh": 78.67,
+      "Chennai": 50.25,
+      "Coimbatore": 37.46,
+      "Delhi": 217.01,
+      "Ernakulam": 44.17,
+      "Gurugram": 175.62,
+      "Guwahati": 87.31,
+      "Hyderabad": 94.48,
+      "Jaipur": 117.13,
+      "Jorapokhar": 129.0,
+      "Kochi": 45.31,
+      "Kolkata": 82.14,
+      "Lucknow": 96.18,
+      "Mumbai": 77.75,
+      "Patna": 118.02,
+      "Shillong": 28.61,
+      "Talcher": 131.46,
+      "Thiruvananthapuram": 48.6,
+      "Visakhapatnam": 100.93
+    },
+    "NO2": {
+      "Ahmedabad": 48.97,
+      "Aizawl": 0.26,
+      "Amaravati": 15.31,
+      "Amritsar": 13.76,
+      "Bengaluru": 27.4,
+      "Bhopal": 32.5,
+      "Brajrajnagar": 16.64,
+      "Chandigarh": 11.33,
+      "Chennai": 15.38,
+      "Coimbatore": 23.67,
+      "Delhi": 47.15,
+      "Ernakulam": 2.4,
+      "Gurugram": 20.08,
+      "Guwahati": 11.94,
+      "Hyderabad": 25.83,
+      "Jaipur": 29.88,
+      "Jorapokhar": 9.39,
+      "Kochi": 8.56,
+      "Kolkata": 32.98,
+      "Lucknow": 29.06,
+      "Mumbai": 21.46,
+      "Patna": 29.81,
+      "Shillong": 2.74,
+      "Talcher": 8.68,
+      "Thiruvananthapuram": 7.73,
+      "Visakhapatnam": 35.44
+    },
+    "SO2": {
+      "Ahmedabad": 47.38,
+      "Aizawl": 7.36,
+      "Amaravati": 12.99,
+      "Amritsar": 6.47,
+      "Bengaluru": 4.99,
+      "Bhopal": 12.12,
+      "Brajrajnagar": 11.51,
+      "Chandigarh": 9.97,
+      "Chennai": 6.46,
+      "Coimbatore": 9.0,
+      "Delhi": 14.47,
+      "Ernakulam": 3.2,
+      "Gurugram": 7.45,
+      "Guwahati": 13.91,
+      "Hyderabad": 7.1,
+      "Jaipur": 10.75,
+      "Jorapokhar": 25.64,
+      "Kochi": 18.65,
+      "Kolkata": 6.8,
+      "Lucknow": 7.27,
+      "Mumbai": 12.46,
+      "Patna": 18.97,
+      "Shillong": 6.64,
+      "Talcher": 27.54,
+      "Thiruvananthapuram": 5.42,
+      "Visakhapatnam": 10.34
+    },
+    "CO": {
+      "Ahmedabad": 16.31,
+      "Aizawl": 0.26,
+      "Amaravati": 0.58,
+      "Amritsar": 0.59,
+      "Bengaluru": 0.92,
+      "Bhopal": 0.87,
+      "Brajrajnagar": 1.91,
+      "Chandigarh": 0.6,
+      "Chennai": 0.85,
+      "Coimbatore": 0.89,
+      "Delhi": 1.25,
+      "Ernakulam": 1.52,
+      "Gurugram": 0.77,
+      "Guwahati": 0.59,
+      "Hyderabad": 0.58,
+      "Jaipur": 0.78,
+      "Jorapokhar": 0.36,
+      "Kochi": 1.32,
+      "Kolkata": 0.72,
+      "Lucknow": 1.35,
+      "Mumbai": 1.16,
+      "Patna": 1.41,
+      "Shillong": 0.24,
+      "Talcher": 1.8,
+      "Thiruvananthapuram": 0.91,
+      "Visakhapatnam": 0.83
+    },
+    "O3": {
+      "Ahmedabad": 39.69,
+      "Aizawl": 2.67,
+      "Amaravati": 32.65,
+      "Amritsar": 20.74,
+      "Bengaluru": 30.46,
+      "Bhopal": 60.13,
+      "Brajrajnagar": 10.27,
+      "Chandigarh": 16.26,
+      "Chennai": 30.41,
+      "Coimbatore": 23.45,
+      "Delhi": 44.44,
+      "Ernakulam": 31.25,
+      "Gurugram": 31.81,
+      "Guwahati": 19.14,
+      "Hyderabad": 32.1,
+      "Jaipur": 45.97,
+      "Jorapokhar": 25.82,
+      "Kochi": 1.33,
+      "Kolkata": 30.06,
+      "Lucknow": 32.57,
+      "Mumbai": 29.26,
+      "Patna": 32.31,
+      "Shillong": 28.84,
+      "Talcher": 12.55,
+      "Thiruvananthapuram": 33.93,
+      "Visakhapatnam": 29.09
+    }
+  },
+  "global_medians": {
+    "PM2.5": 48.78,
+    "PM10": 96.18,
+    "NO2": 22.1,
+    "SO2": 9.22,
+    "CO": 0.93,
+    "O3": 31.25
+  },
+  "bucket_labels": [
+    "Good",
+    "Satisfactory",
+    "Moderate",
+    "Poor",
+    "Very Poor",
+    "Severe"
+  ]
+}

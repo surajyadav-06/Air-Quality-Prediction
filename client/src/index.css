@@ -1,0 +1,526 @@
+/* Air Quality Prediction — College Mini-Project Stylesheet */
+/* Clean academic style: white/light-gray background, green accent */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f5f7f5;
+  color: #1e293b;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* ─── Layout ──────────────────────────────────────────────── */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+.header {
+  background-color: #ffffff;
+  border-bottom: 2px solid #2e7d32;
+  padding: 0;
+}
+
+.header-inner {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.project-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1b4332;
+  letter-spacing: -0.2px;
+}
+
+.project-subtitle {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 1px;
+  font-weight: 400;
+}
+
+/* ─── Navigation Tabs ─────────────────────────────────────── */
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 6px 13px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.tab-btn:hover {
+  background-color: #f0fdf4;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.tab-btn.active {
+  background-color: #2e7d32;
+  color: #ffffff;
+  border-color: #2e7d32;
+  font-weight: 600;
+}
+
+/* ─── Main Content ────────────────────────────────────────── */
+.main-content {
+  flex: 1;
+  max-width: 1020px;
+  width: 100%;
+  margin: 22px auto;
+  padding: 0 20px;
+}
+
+/* ─── Panel / Card ────────────────────────────────────────── */
+.panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+}
+
+.panel-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1b4332;
+  border-bottom: 1px solid #e7f3e8;
+  padding-bottom: 9px;
+  margin-bottom: 14px;
+}
+
+.panel-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: -8px;
+  margin-bottom: 14px;
+}
+
+/* ─── Section Label (used in ML Results) ─────────────────── */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+/* ─── Best Model Banner ───────────────────────────────────── */
+.best-model-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 4px;
+  padding: 5px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #15803d;
+  margin-bottom: 14px;
+}
+
+/* ─── Form Controls ───────────────────────────────────────── */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px 18px;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+.form-label .unit {
+  font-weight: 400;
+  color: #9ca3af;
+  font-size: 11.5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 13.5px;
+  color: #1e293b;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.12s;
+}
+
+.form-control:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.08);
+}
+
+/* ─── Buttons ─────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.btn-primary {
+  background-color: #2e7d32;
+  color: #ffffff;
+  border-color: #2e7d32;
+}
+
+.btn-primary:hover {
+  background-color: #1b5e20;
+  border-color: #1b5e20;
+}
+
+.btn-primary:disabled {
+  background-color: #9ca3af;
+  border-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.btn-secondary:hover {
+  background-color: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}
+
+/* ─── Tables ──────────────────────────────────────────────── */
+.table-responsive {
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.academic-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.academic-table th,
+.academic-table td {
+  border: 1px solid #e2e8f0;
+  padding: 8px 11px;
+}
+
+.academic-table th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.academic-table tr:nth-child(even) td {
+  background-color: #fcfcfc;
+}
+
+.academic-table tr.highlight td {
+  background-color: #f0fdf4;
+  font-weight: 600;
+}
+
+/* ─── Alert / Info Boxes ──────────────────────────────────── */
+.alert-box {
+  padding: 11px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin: 12px 0;
+  border-left: 3px solid;
+}
+
+.alert-info {
+  background-color: #f0fdf4;
+  border-color: #2e7d32;
+  color: #1b4332;
+}
+
+.alert-warning {
+  background-color: #fffbeb;
+  border-color: #d97706;
+  color: #92400e;
+}
+
+.alert-danger {
+  background-color: #fef2f2;
+  border-color: #dc2626;
+  color: #991b1b;
+}
+
+.alert-success {
+  background-color: #f0fdf4;
+  border-color: #16a34a;
+  color: #15803d;
+}
+
+/* ─── AQI Category Badges (Standard CPCB Colors) ──────────── */
+.category-badge {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.cat-good         { background-color: #16a34a; }
+.cat-satisfactory { background-color: #65a30d; }
+.cat-moderate     { background-color: #ca8a04; }
+.cat-poor         { background-color: #ea580c; }
+.cat-very-poor    { background-color: #dc2626; }
+.cat-severe       { background-color: #991b1b; }
+
+/* ─── Result Display ──────────────────────────────────────── */
+.result-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  padding: 16px;
+  background-color: #ffffff;
+  margin-top: 16px;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.aqi-number {
+  font-size: 30px;
+  font-weight: 800;
+  color: #1b4332;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Bar Chart (inline SVG-style bars) ──────────────────── */
+.bar-row {
+  display: grid;
+  grid-template-columns: 170px 1fr 58px;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  margin-bottom: 6px;
+}
+
+.bar-track {
+  background: #f1f5f9;
+  height: 13px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.bar-fill.best  { background-color: #2e7d32; }
+.bar-fill.other { background-color: #0284c7; }
+
+/* ─── Confusion Matrix ────────────────────────────────────── */
+.cm-grid {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+.cm-grid th,
+.cm-grid td {
+  border: 1px solid #d1d5db;
+  padding: 6px 5px;
+}
+
+.cm-grid th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  font-size: 11.5px;
+}
+
+.cm-diag {
+  background-color: #dcfce7;
+  font-weight: 700;
+  color: #15803d;
+}
+
+/* ─── Algorithms List ─────────────────────────────────────── */
+.algo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.algo-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 12px 14px;
+  background: #f9fafb;
+}
+
+.algo-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #374151;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.algo-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.algo-card ul li {
+  font-size: 13px;
+  color: #4b5563;
+  padding: 2px 0;
+  padding-left: 14px;
+  position: relative;
+}
+
+.algo-card ul li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #9ca3af;
+}
+
+/* ─── Info Row (key: value pairs) ────────────────────────── */
+.info-row {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.info-key {
+  font-weight: 600;
+  color: #374151;
+  min-width: 140px;
+  flex-shrink: 0;
+}
+
+.info-val {
+  color: #4b5563;
+}
+
+/* ─── Home page objective cards ──────────────────────────── */
+.objective-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.objective-card {
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #2e7d32;
+  border-radius: 4px;
+  padding: 12px 14px;
+  background: #f9fafb;
+}
+
+.objective-card-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2e7d32;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.objective-card-text {
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* ─── Divider ─────────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid #e7f3e8;
+  margin: 14px 0;
+}
+
+/* ─── Footer ──────────────────────────────────────────────── */
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: auto;
+}
