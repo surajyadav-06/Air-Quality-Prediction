@@ -243,7 +243,8 @@ app.post('/api/predict', (req, res) => {
     String(o3)
   ];
 
-  const pyProcess = spawn('python', args);
+  const pythonExecutable = process.env.PYTHON_PATH || (process.platform === 'win32' ? 'python' : 'python3');
+  const pyProcess = spawn(pythonExecutable, args);
   let output = '';
   let errorOutput = '';
 

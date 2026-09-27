@@ -6,7 +6,7 @@ export default function Home({ setActiveTab }) {
       {/* Project Introduction */}
       <div className="panel">
         <h2 style={{ fontSize: 20, fontWeight: 700, color: '#1b4332', marginBottom: 14 }}>
-          Air Quality Prediction Using Machine Learning
+          Air Quality Prediction
         </h2>
 
         <p style={{ fontSize: 14, color: '#374151', lineHeight: 1.7, marginBottom: 18 }}>
@@ -40,7 +40,7 @@ export default function Home({ setActiveTab }) {
         </div>
 
         <div className="panel" style={{ marginBottom: 0 }}>
-          <h3 className="panel-title">Project Objectives</h3>
+          <h3 className="panel-title"> Objectives</h3>
           <div className="objective-grid" style={{ gridTemplateColumns: '1fr', margin: 0 }}>
             {[
               'Preprocess the CPCB dataset — handle missing values, duplicates, and feature engineering.',
@@ -74,12 +74,12 @@ export default function Home({ setActiveTab }) {
             </thead>
             <tbody>
               {[
-                ['0 – 50',    'Good',       'cat-good',       'Minimal impact on health.'],
-                ['51 – 100',  'Satisfactory','cat-satisfactory','Minor breathing discomfort to sensitive individuals.'],
-                ['101 – 200', 'Moderate',   'cat-moderate',   'Breathing discomfort to people with lung disease, asthma, or heart conditions.'],
-                ['201 – 300', 'Poor',       'cat-poor',       'Breathing discomfort to most people on prolonged exposure.'],
-                ['301 – 400', 'Very Poor',  'cat-very-poor',  'Respiratory illness on prolonged exposure; significant effect on vulnerable groups.'],
-                ['401 – 500+','Severe',     'cat-severe',     'Affects healthy people and seriously impacts those with existing conditions.'],
+                ['0 – 50', 'Good', 'cat-good', 'Minimal impact on health.'],
+                ['51 – 100', 'Satisfactory', 'cat-satisfactory', 'Minor breathing discomfort to sensitive individuals.'],
+                ['101 – 200', 'Moderate', 'cat-moderate', 'Breathing discomfort to people with lung disease, asthma, or heart conditions.'],
+                ['201 – 300', 'Poor', 'cat-poor', 'Breathing discomfort to most people on prolonged exposure.'],
+                ['301 – 400', 'Very Poor', 'cat-very-poor', 'Respiratory illness on prolonged exposure; significant effect on vulnerable groups.'],
+                ['401 – 500+', 'Severe', 'cat-severe', 'Affects healthy people and seriously impacts those with existing conditions.'],
               ].map(([range, label, cls, impact]) => (
                 <tr key={range}>
                   <td style={{ fontFamily: 'monospace', fontWeight: 600 }}>{range}</td>

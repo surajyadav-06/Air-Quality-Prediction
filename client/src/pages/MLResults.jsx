@@ -57,7 +57,7 @@ export default function MLResults() {
     <div>
       {/* Section 0: Experiment Overview */}
       <div className="panel">
-        <h2 className="panel-title">Machine Learning Experiment Results</h2>
+        <h2 className="panel-title">Results</h2>
         <p className="panel-subtitle">
           Actual metrics computed on the CPCB dataset using an 80/20 train/test split.
         </p>
