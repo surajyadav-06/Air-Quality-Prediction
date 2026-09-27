@@ -11,28 +11,57 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Database Connection
-const dbPath = path.join(__dirname, '..', 'database', 'air_quality.db');
-const db = new sqlite3.Database(dbPath, (err) => {
-  if (err) {
-    console.error('Failed to connect to SQLite database:', err.message);
-  } else {
-    console.log('Connected to SQLite database at:', dbPath);
-  }
-});
+// Load ML Report (Direct require ensures bundlers include it in serverless lambdas)
+let bundledReport = null;
+try {
+  bundledReport = require('../ml/artifacts/experiment_10_report.json');
+} catch (e) {
+  // Ignore fallback to filesystem search
+}
 
-// Load ML Report Artifact Helper
 function getMlReport() {
+  if (bundledReport) return bundledReport;
   try {
-    const mlReportPath = path.join(__dirname, '..', 'ml', 'artifacts', 'experiment_10_report.json');
-    if (fs.existsSync(mlReportPath)) {
-      return JSON.parse(fs.readFileSync(mlReportPath, 'utf8'));
+    const possiblePaths = [
+      path.join(process.cwd(), 'ml', 'artifacts', 'experiment_10_report.json'),
+      path.join(__dirname, '..', 'ml', 'artifacts', 'experiment_10_report.json'),
+      path.join(__dirname, 'ml', 'artifacts', 'experiment_10_report.json')
+    ];
+    for (const p of possiblePaths) {
+      if (fs.existsSync(p)) {
+        return JSON.parse(fs.readFileSync(p, 'utf8'));
+      }
     }
   } catch (e) {
     console.warn('Could not load ML report:', e.message);
   }
   return null;
 }
+
+// Database Connection with serverless path resolution and OPEN_READONLY
+function getDbPath() {
+  const possiblePaths = [
+    path.join(process.cwd(), 'database', 'air_quality.db'),
+    path.join(__dirname, '..', 'database', 'air_quality.db'),
+    path.join(__dirname, 'database', 'air_quality.db')
+  ];
+  for (const p of possiblePaths) {
+    if (fs.existsSync(p)) return p;
+  }
+  return possiblePaths[0];
+}
+
+const dbPath = getDbPath();
+// In serverless / read-only filesystems, open with sqlite3.OPEN_READONLY
+const dbMode = (sqlite3.OPEN_READONLY !== undefined) ? sqlite3.OPEN_READONLY : 1;
+const db = new sqlite3.Database(dbPath, dbMode, (err) => {
+  if (err) {
+    console.error('Failed to connect to SQLite database at', dbPath, ':', err.message);
+  } else {
+    console.log('Connected to SQLite database at:', dbPath);
+  }
+});
+
 
 // Health Advice Helper
 function getHealthAdvice(bucket) {
