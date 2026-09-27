@@ -1,8 +1,10 @@
 {
+  "framework": "vite",
   "buildCommand": "npm --prefix client install && npm --prefix client run build",
   "outputDirectory": "client/dist",
   "functions": {
     "api/index.js": {
+      "runtime": "nodejs20.x",
       "includeFiles": "database/**,ml/artifacts/**"
     }
   },
